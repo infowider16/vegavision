@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+require __DIR__.'/admin.php';
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'name' => 'frontend'], function () {
     Route::get('/', 'HomeControllers@index')->name('home');
     Route::get('/about', 'HomeControllers@about')->name('about');
