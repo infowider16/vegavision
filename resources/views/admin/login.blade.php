@@ -62,7 +62,7 @@
 
 
                                 <div class="modal-sign-up-logo">
-                                    <img src="{{ asset('assets/img/logos/logo.png')}}" alt="logo" style="width:89%;">
+                                    <img src="{{ asset('assets/images/vega-logo.png')}}" alt="logo" style="width:89%;">
                                 </div>
                                 <div class="modal-sign-up-text">
                                     <h2>Forgot Password</h2>

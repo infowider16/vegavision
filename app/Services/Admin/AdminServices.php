@@ -33,7 +33,7 @@ class AdminServices
         try {
             $admin = Auth::user(); // ✅ Get the actual user
 
-            if ($admin && $admin->type === 'admin') {
+            if ($admin && $admin->role === 'admin') {
                 $admin->password = Hash::make($request->new_password);
                 $admin->save();
 
@@ -101,7 +101,7 @@ public function forgetPassword($request)
         
         if (empty($email)) {
             return response()->json([
-                'message' => 'L\'indirizzo email è obbligatorio.',
+                'message' => 'Email address is required.',
                 'status' => 400
             ]);
         }
@@ -110,51 +110,51 @@ public function forgetPassword($request)
         
         if (!$adminData) {
             return response()->json([
-                'message' => 'Indirizzo email non trovato.',
+                'message' => 'Email address not found.',
                 'status' => 404
             ]);
         }
 
-        // Genera password temporanea
+        // Generate temporary password
         $randomPassword = mt_rand(100000, 999999);
         $hashedPassword = Hash::make($randomPassword);
         
-        // Aggiorna password
+        // Update password
         $this->adminrepository->update(
             ['id' => $adminData->id], 
             ['password' => $hashedPassword]
         );
 
-        // Prepara e invia l'email
+        // Prepare and send email
         $mailData = [
-            'subject' => 'Reimpostazione della password',
+            'subject' => 'Reset Your Password',
             'email' => $email,
             'user' => $adminData,
             'newPassword' => $randomPassword,
-            'body' => '<p>Ciao ' . $adminData->name . ',</p>' .
-                      '<p>Hai richiesto la reimpostazione della tua password.</p>' .
-                      '<p>La tua nuova password temporanea è: <strong>' . $randomPassword . '</strong></p>' .
-                      '<p>Ti consigliamo di cambiarla dopo l\'accesso.</p>'
+            'body' => '<p>Hello ' . $adminData->name . ',</p>' .
+                      '<p>You requested a password reset.</p>' .
+                      '<p>Your new temporary password is: <strong>' . $randomPassword . '</strong></p>' .
+                      '<p>Please change it after logging in.</p>'
         ];
 
         try {
             Mail::to($email)->send(new DemoMail($mailData));
             return response()->json([
-                'message' => 'La password è stata reimpostata con successo. Controlla la tua email per la nuova password.',
+                'message' => 'Password has been reset successfully. Check your email for the new password.',
                 'status' => 200
             ]);
         } catch (\Exception $mailException) {
-            Log::error('Invio email fallito: ' . $mailException->getMessage());
+            Log::error('Email sending failed: ' . $mailException->getMessage());
             return response()->json([
-                'message' => 'Errore durante l\'invio dell\'email. Riprova più tardi.',
+                'message' => 'Error sending email. Please try again later.',
                 'status' => 500
             ]);
         }
 
     } catch (Exception $e) {
-        Log::error("Errore in UserServices.forgetPassword(): " . $e->getMessage());
+        Log::error("Error in UserServices.forgetPassword(): " . $e->getMessage());
         return response()->json([
-            'message' => 'Si è verificato un errore imprevisto. Riprova più tardi.',
+            'message' => 'An unexpected error occurred. Please try again later.',
             'status' => 500
         ]);
     }

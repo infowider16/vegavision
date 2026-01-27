@@ -6,22 +6,20 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePasswordRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
-        return auth('admin')->check();
+        return auth()->check();
     }
 
     public function rules(): array
     {
         return [
-            'current_password' => ['required', 'current_password:admin'],
+            'current_password' => ['required', 'current_password'],
             'new_password' => [
                 'required',
                 'string',
-                'min:8',
+                'min:6',
                 'max:128',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,128}$/'
             ],
             'confirm_password' => ['required', 'same:new_password'],
         ];

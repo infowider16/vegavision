@@ -34,11 +34,6 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
         Route::get('/users/{id}', 'UserController@show')->name('user.Detail');
         Route::post('/users/make-paid', 'UserController@makePaid')->name('user.makePaid');
 
-        Route::get('/category-list', 'DashboardController@categoryList')->name('category.management');
-        Route::post('/create-category', 'DashboardController@createCategory')->name('addcategory');
-        Route::post('/update-category', 'DashboardController@updateCategory')->name('updatecategory');
-        Route::post('/delete-category', 'DashboardController@deleteCategory')->name('deletecategory');
-
         Route::post('/get-provinces', 'DashboardController@getProvinces')->name('get.provinces');
         Route::post('/get-municipalities', 'DashboardController@getMunicipalities')->name('get.municipalities');
 

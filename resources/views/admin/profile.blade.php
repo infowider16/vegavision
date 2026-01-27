@@ -74,13 +74,13 @@
                                                         <div class="col-12 col-md-12 col-lg-6 ">
                                                             <label for="exampleFormControlInput1"
                                                                 class="form-label">Name</label>
-                                                            <input type="text" name="name" class="form-control" value="{{ auth('admin')->user()->name }}">
+                                                            <input type="text" name="name" class="form-control" value="{{ auth()->user()->name }}">
 
                                                         </div>
                                                         <div class="col col-12 col-md-12 col-lg-6 ">
                                                             <label for="exampleFormControlInput1"
                                                                 class="form-label">Email</label>
-                                                            <input type="email" name="email" class="form-control" value="{{ auth('admin')->user()->email }}">
+                                                            <input type="email" name="email" class="form-control" value="{{ auth()->user()->email }}">
 
                                                         </div>
                                                     </div>
@@ -106,7 +106,7 @@
 
 
                                             <div class="up-date-profile-img">
-                                                <img id="previewImage" src="{{ auth('admin')->user()->profile_image ? asset('storage/' . auth('admin')->user()->profile_image) : asset('assets/admin/images/Update-profile.png') }}" alt="Profile Image">
+                                                <img id="previewImage" src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : asset('assets/admin/images/Update-profile.png') }}" alt="Profile Image">
 
                                                 <div class="up-date-profile-img-btn">
                                                     <input type="file" name="profile_image" id="profileImageInput" style="display: none;" accept="image/*">
