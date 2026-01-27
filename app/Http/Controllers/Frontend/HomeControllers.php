@@ -19,28 +19,47 @@ class HomeControllers extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        try {
+            return view('frontend.about');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function contact()
     {
-        return view('frontend.contact');
+        try {
+            return view('frontend.contact');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function solutions()
     {
-        return view('frontend.solutions');
+        try {
+            return view('frontend.solutions');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function caseStudies()
     {
-        return view('frontend.case-studies');
+        try {
+            return view('frontend.case-studies');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function insights()
     {
-        return view('frontend.insights');
+        try {
+            return view('frontend.insights');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    // Add more methods as needed for other pages
 }

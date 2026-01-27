@@ -125,7 +125,15 @@
                             </div>
                             <div class="single-input">
                                 <label for="phone" class="visually-hidden">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+                                <div class="d-flex">
+                                    <select id="country-code" name="country_code" class="form-select" aria-label="Country Code">
+                                        <option value="+1">+1</option>
+                                        <option value="+27">+27</option>
+                                        <option value="+44">+44</option>
+                                        <option value="+91">+91</option>
+                                    </select>
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="flex-grow-1" />
+                                </div>
                             </div>
                         </div>
 
@@ -144,4 +152,21 @@
     </div>
 </section>
 <!-- rts faq area end -->
+
+<!-- Include Google Places API -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places"></script>
+
+<script>
+    // Initialize Google Autocomplete for the Organisation input field
+    function initializeAutocomplete() {
+        const input = document.getElementById('organization');
+        const autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Restrict the search to organizations/businesses only
+        autocomplete.setFields(['name']);
+    }
+
+    // Load the autocomplete when the page is fully loaded
+    document.addEventListener('DOMContentLoaded', initializeAutocomplete);
+</script>
 @endsection
