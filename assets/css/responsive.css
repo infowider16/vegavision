@@ -1,0 +1,310 @@
+h3.service-heading {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: #101028;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 12px;
+}
+
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    
+    /* ================= Header Start ================= */
+    .nav-area{
+        display: none;
+    }
+
+    .menu-btn-toggle{
+        display: block;
+    }
+
+
+    /* ================= Header End ================= */
+ }
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    
+     /* ================= Insights Start ================= */
+
+     .rts-section-gap {
+         padding: 25px 0;
+        }
+
+    .contact-form-style-one .title {
+        font-size: 42px;
+    }
+
+    /* ================= Insights End ================= */
+ }
+    
+
+@media (max-width:991px){
+
+    /* ================= Header Start ================= */
+
+    .mobile-menu-main nav ul li {
+        margin: 10px 0px;
+        padding: 0;
+    }
+
+    .mobile-menu-main nav ul li a.main{
+        padding: 0px;
+        border:none;
+    }
+
+    .mobile-menu-main nav ul li.has-droupdown::after {
+        top: -7px;
+    }
+
+    .mobile-menu-main nav ul li a.main{
+        color: var(--color-body);
+    }
+    .mobile-menu-main nav ul li.has-droupdown::after{
+        color: var(--color-body);
+    }
+
+    /* ================= Header End ================= */
+
+    /* ================= Insights Start ================= */
+
+    .rts-about-breadcrumb-area {
+        padding: 0px 0;
+    }
+
+    .rts-about-breadcrumb-content ul {
+        padding: 2rem 0;
+    }
+
+    .rts-section-gap {
+        padding: 20px 0;
+    }
+    /* ================= Insights End ================= */
+
+    /* ================= Home Start ================= */
+
+    .banner-style-one-wrapper-inner .title {
+        font-size: 42px;
+        line-height: 60px;
+    }
+
+    .solutions-ecosystem .core-title h3 {
+        font-size: 15px;
+    }
+
+    .solutions-ecosystem .engagement-products span,
+    .solutions-ecosystem .observability-products span{
+        padding: 6px 15px;
+    }
+
+
+    .solutions-ecosystem .section-header h2 {
+        font-size: 42px;
+    }
+
+    .solutions-ecosystem .layer.engagement .layer-label {
+        white-space: nowrap;
+    }
+
+    .solutions-ecosystem .layer.engagement {
+        width: 230px;
+        height: 230px;
+    }
+
+    .solutions-ecosystem .engagement-products span{
+        line-height: 1;
+    }
+
+    .solutions-ecosystem .engagement-products {
+        width: 120px;
+    }
+
+    .solutions-ecosystem .integration-products {
+        width: 560px;
+    }
+
+     .case-study-container h2 {
+        font-size: 32px !important;
+    }
+
+    .case-study-container .case-study-header h1 {
+        font-size: 42px !important;
+    }
+
+    .case-study-container .solution-section .solution-intro {
+        margin: 30px 0px;
+    }
+
+    /* ================= Home End ================= */
+
+    .rts-service-details-breadcrumb-area .breadcrumb-area .title {
+        font-size: 42px;
+    }
+
+    .rts-blog-detials-area-start .inner-content-blog-details h2.title {
+        font-size: 38px;
+    }
+
+    .rts-blog-detials-area-start h3 {
+        font-size: 24px;
+    }
+
+    .rts-service-details-breadcrumb-area {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+}
+
+@media  (max-width:575px) {
+     /* ================= Insights Start ================= */
+
+    .contact-form-style-one .title {
+        font-size: 24px;
+    }
+
+    .title-left-wrapper .title, .title-center-wrapper .title {
+        font-size: 24px !important;
+    }
+    
+     /* ================= Insights End ================= */
+     /* ================= Home Start ================= */
+
+    .banner-style-one-wrapper-inner .title{
+        font-size: 32px;
+        line-height: 45px;
+    }
+
+    .banner-swiper-main-wrapper-one .button-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .rts-banner-area-one {
+        height: 700px;
+    }
+
+    .solutions-ecosystem .section-header h2 {
+        font-size: 28px;
+    }
+
+    .single-service-style-one a .title {
+        font-size: 20px;
+    }
+
+    figure.left-image.last {
+        display: block;
+        max-width: 100%;
+    }
+
+    figure.left-image {
+        display: none;
+    }
+
+    .solutions-ecosystem .layer.observability {
+        width: 400px;
+        height: 400px;
+    }
+
+    .solutions-ecosystem .layer.integration {
+        width: 300px;
+        height: 300px;
+    }
+
+    .solutions-ecosystem .layer.engagement {
+        width: 200px;
+        height: 200px;
+    }
+
+    .solutions-ecosystem .integration-products span, .solutions-ecosystem .observability-products span {
+        flex: 0 0 5%;
+        line-height: 1;
+        padding: 6px 10px;
+    }
+
+    .solutions-ecosystem .integration-products {
+        width: 492px;
+    }
+
+    .solutions-ecosystem .engagement-products {height: 118px;}
+
+    .solutions-ecosystem .core-title h3 {
+        font-size: 12px;
+    }
+
+    .solutions-ecosystem .observability-products {
+        top: 75%;
+    }
+
+    .solutions-ecosystem .layer.engagement .layer-label {
+        line-height: 1.2;
+        top: -20px;
+    }
+
+     /* ================= Home End ================= */
+
+     .challenge-section h2 {
+        font-size: 28px !important;
+    }
+
+    .solutions-ecosystem .section-header p {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+
+    .case-study-container .case-study-header h1 {
+        font-size: 32px !important;
+    }
+
+    .case-study-container  h2 {
+        font-size: 24px !important;
+    }
+
+    .case-study-container  h3 {
+        font-size: 20px !important;
+    }
+
+    .case-study-container .solution-section .solution-intro {
+        font-size: 16px;
+    }
+
+    .case-study-container .challenge-section .impact-statement {
+        font-size: 16px;
+    }
+
+    .case-study-container .challenge-section .challenge-intro {
+        font-size: 16px;
+    }
+
+    .case-study-container .case-study-header .client-description {
+        font-size: 18px;
+    }
+
+    .case-study-container .outcome-section .conclusion {
+        font-size: 16px;
+    }
+
+    .case-study-container .case-study-header .case-category {
+        font-size: 12px;
+    }
+
+    .rts-service-details-breadcrumb-area .breadcrumb-area .title {
+        font-size: 32px;
+    }
+
+
+    .rts-service-details-breadcrumb-area {
+        padding: 25px;
+    }
+
+    .rts-blog-detials-area-start .inner-content-blog-details h2.title {
+        font-size: 24px;
+    }
+
+    .rts-blog-detials-area-start h3 {
+        font-size: 20px;
+    }
+}
+
