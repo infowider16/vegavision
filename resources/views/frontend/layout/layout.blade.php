@@ -151,7 +151,20 @@
     <script defer src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
     <script defer src="{{ asset('assets/js/plugins/swiper.js') }}"></script>
     <script defer src="{{ asset('assets/js/main.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function showSweetAlert(icon, title, text, callback = null) {
+            Swal.fire({
+                icon: icon,
+                title: title,
+                text: text
+            }).then(function(result) {
+                if (callback && result.isConfirmed) {
+                    callback();
+                }
+            });
+        }
+    </script>
 
 </body>
 

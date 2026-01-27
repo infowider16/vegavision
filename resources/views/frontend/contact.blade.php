@@ -104,9 +104,10 @@
                 <div class="contact-form-style-one mt--30">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h3 class="title mb-0">Let’s Talk</h3>
-                        <a href="#">+27 (0)10 313-0090</a>
+                        <a href="javascript:void(0)">+27 (0)10 313-0090</a>
                     </div>
-                    <form action="#" method="post" aria-label="Contact Form to discuss IT solutions">
+                    <form onsubmit="return handleSubmit();" id="contactForm" aria-label="Contact Form to discuss IT solutions">
+                        @csrf
                         <div class="single-input-wrapper justify-content-between">
                             <div class="single-input">
                                 <label for="name" class="visually-hidden">Full Name</label>
@@ -114,7 +115,7 @@
                             </div>
                             <div class="single-input">
                                 <label for="organization" class="visually-hidden">Organisation</label>
-                                <input type="text" id="organization" name="organization" placeholder="Organisation" />
+                                <input type="text" id="organization" name="organization" placeholder="Organisation" required />
                             </div>
                         </div>
 
@@ -126,14 +127,14 @@
                             <div class="single-input">
                                 <label for="phone" class="visually-hidden">Phone Number</label>
                                 <div class="d-flex">
-                                    <select id="country-code" name="country_code" class="form-select" aria-label="Country Code">
-                                        <option value="+1">+1</option>
-                                        <option value="+27">+27</option>
-                                        <option value="+44">+44</option>
-                                        <option value="+91">+91</option>
+                                    <select id="country-code" name="country_code" class="form-select" aria-label="Country Code" required>
+                                        @foreach($countryCodes as $country)
+                                        <option value="{{ $country->phonecode ?? ''  }}">{{ $country->iso }} ({{ $country->phonecode ?? '' }})</option>
+                                        @endforeach
                                     </select>
-                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="flex-grow-1" />
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="flex-grow-1" required />
                                 </div>
+
                             </div>
                         </div>
 
@@ -143,7 +144,7 @@
                                 placeholder="Tell us about your business requirements" required></textarea>
                         </div>
 
-                        <button class="rts-btn btn-primary" type="submit">Send Message</button>
+                        <button class="rts-btn btn-primary" id="contactSubmitBtn" type="submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -168,5 +169,49 @@
 
     // Load the autocomplete when the page is fully loaded
     document.addEventListener('DOMContentLoaded', initializeAutocomplete);
+
+    function handleSubmit() {
+        $.ajax({
+            url: "{{ route('contact.submit') }}",
+            type: "POST",
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: new FormData($('#contactForm')[0]),
+            dataType: 'json',
+            beforeSend: function() {
+                $('#contactSubmitBtn').prop('disabled', true);
+                $('#contactSubmitBtn').text('Process....');
+                // Clear previous error messages
+                $('.text-danger').remove();
+            },
+            success: function(res) {
+                $('#contactSubmitBtn').prop('disabled', false);
+                $('#contactSubmitBtn').text('Send Message');
+                if (res.status == '2') {
+                    showSweetAlert('success', 'Success', res.message, function() {
+                        $('#contactForm')[0].reset();
+                    });
+                } else {
+                    showSweetAlert('error', 'Error', res.message);
+                }
+            },
+            error: function(error) {
+                $('#contactSubmitBtn').prop('disabled', false);
+                $('#contactSubmitBtn').text('Send Message');
+                if (error.status === 422) {
+                    const errors = error.responseJSON.errors;
+                    for (const field in errors) {
+                        const errorMessage = errors[field][0];
+                        const inputField = $(`[name="${field}"]`);
+                        inputField.after(`<div><span class="text-danger ms-2">${errorMessage}</span></div>`);
+                    }
+                } else {
+                    showSweetAlert('error', 'Error', 'An unexpected error occurred. Please try again later.');
+                }
+            }
+        });
+        return false;
+    }
 </script>
 @endsection
