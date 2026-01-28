@@ -15,33 +15,44 @@ class BaseRepository
         $this->model = $model;
     }
 
-    public function all($columns = ['*'],$orderBY=['id'=>'desc'])
+    public function all($columns = ['*'], $orderBY = ['id' => 'desc'])
     {
-        $cacheKey = 'all_' . $this->model->getTable();
-        return Cache::remember($cacheKey, $this->cacheTime, function () use ($columns,$orderBY) {
-            return $this->model->orderBy($orderBY)->get();
+        $cacheKey = 'all_' . $this->model->getTable() . '_' . md5(json_encode([$columns, $orderBY]));
+
+        return Cache::remember($cacheKey, $this->cacheTime, function () use ($columns, $orderBY) {
+            $query = $this->model->select($columns);
+
+            foreach ($orderBY as $column => $direction) {
+                $query->orderBy($column, $direction);
+            }
+
+            return $query->get();
         });
     }
 
-    public function getOneData($byWhere){
+    public function getOneData($byWhere)
+    {
         $cacheKey = 'getOneData_' . $this->model->getTable();
         return Cache::remember($cacheKey, $this->cacheTime, function () use ($byWhere) {
             return $this->model->where($byWhere)->first();
         });
     }
 
-    public function create(array $payload){
+    public function create(array $payload)
+    {
         $model = $this->model->create($payload);
         return $model->fresh();
     }
 
-    public function update(array $modelId, array $payload){
+    public function update(array $modelId, array $payload)
+    {
         $this->clearAllCache();
         $model = $this->getOneData($modelId);
         return $model->update($payload);
     }
 
-    public function deleteData(array $modelData){
+    public function deleteData(array $modelData)
+    {
         $this->clearAllCache();
         return $this->getOneData($modelData)->delete();
     }

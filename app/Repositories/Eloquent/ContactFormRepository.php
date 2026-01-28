@@ -20,5 +20,10 @@ class ContactFormRepository extends BaseRepository
       
     }
 
+    public function query()
+    {
+        return  $this->model->query(); 
+    }
+
     
 }

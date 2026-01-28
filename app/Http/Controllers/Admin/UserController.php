@@ -5,32 +5,36 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use Exception;
-use App\Repositories\Eloquent\ContactFormRepository;
+use App\Services\Admin\UserServices;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected $contactFormRepository;
+    protected $userServices;
 
-    public function __construct(ContactFormRepository $contactFormRepository)
+    public function __construct(UserServices $userServices)
     {
-        $this->contactFormRepository = $contactFormRepository;
+        $this->userServices = $userServices;
     }
-    public function contactManagement()
+
+    public function contactManagement(Request $request)
     {
         try {
-           $data = $this->contactFormRepository->all("*");
-            return view('admin.contact-management', compact('data'));
+            if ($request->ajax()) {
+                return $this->userServices->getContactManagementData($request);
+            }
+
+            return view('admin.contact-management');
         } catch (\Exception $e) {
-            Log::error('Error in class ' . __CLASS__ .
-                ' method ' . __METHOD__ .
-                ' line ' . __LINE__ .
-                ' message ' . $e->getMessage());
-            return response()->json([
-                'status'  => 0,
-                'error'   => $e->getMessage(),
-                'data'    => [],
-                'message' => 'Something went wrong'
-            ]);
+            Log::error('Error in ' . __METHOD__ . ': ' . $e->getMessage());
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 0,
+                    'message' => 'Something went wrong',
+                    'error' => $e->getMessage(),
+                ], 500);
+            }
         }
     }
 }
