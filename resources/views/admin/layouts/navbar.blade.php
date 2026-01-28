@@ -1,4 +1,4 @@
- <header class="nftmax-header">
+<header class="nftmax-header">
      <div class="container-fluid">
          <div class="row g-50">
              <div class="col-12">
@@ -126,7 +126,7 @@
 
                              <div class="d-flex gap-2">
                                  <div class="profile-img header-prof-img" data-name="profile-drop">
-                                     <img src="{{ auth('admin')->user()->profile_image ? asset('storage/' . auth('admin')->user()->profile_image) : asset('assets/admin/images/Update-profile.png') }}"
+                                     <img src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : asset('assets/admin/images/Update-profile.png') }}"
                                          alt="img" data-name="profile-drop">
                                  </div>
                                  <div class="profile-taitel" data-name="profile-taitel ">
