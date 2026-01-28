@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $countryCodes = app('App\Repositories\Eloquent\CountryRepository')->getAll();
+        view()->share('countryCodes', $countryCodes);
     }
 }

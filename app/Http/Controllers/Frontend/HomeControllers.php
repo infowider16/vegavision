@@ -5,19 +5,15 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
-use App\Repositories\Eloquent\CountryRepository;
 use App\Requests\ContactFormRequest;
 use App\Services\Frontend\HomeService;
 
 class HomeControllers extends Controller
 {
-
-    protected $countryRepository;
     protected $homeService;
 
-    public function __construct(CountryRepository $countryRepository, HomeService $homeService)
+    public function __construct(HomeService $homeService)
     {
-        $this->countryRepository = $countryRepository;
         $this->homeService = $homeService;
     }
 
@@ -42,8 +38,7 @@ class HomeControllers extends Controller
     public function contact()
     {
         try {
-            $countryCodes = $this->countryRepository->getAll();
-            return view('frontend.contact', compact('countryCodes'));
+            return view('frontend.contact');
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
