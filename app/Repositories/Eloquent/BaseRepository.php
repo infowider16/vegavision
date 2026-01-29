@@ -31,8 +31,6 @@ class BaseRepository
     }
 
     public function create(array $payload){
-        //dd($payload);
-        $this->clearAllCache();
         $model = $this->model->create($payload);
         return $model->fresh();
     }

@@ -21,16 +21,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Site settings ko globally share karne ke liye repository aur logging ke sath
+        // Share site settings globally
         try {
             if (\Schema::hasTable('site_settings')) {
                 $repo = app(SiteSettingRepository::class);
                 $settings = $repo->getAllSettings();
                 view()->share('site_settings', $settings);
-             
             }
+
+            
+        // Share country codes globally
+        $countryCodes = app('App\Repositories\Eloquent\CountryRepository')->getAll();
+        view()->share('countryCodes', $countryCodes);
         } catch (\Exception $e) {
             Log::error('Error in AppServiceProvider@boot: ' . $e->getMessage());
         }
+
     }
 }

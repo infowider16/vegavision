@@ -5,42 +5,82 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
+use App\Requests\ContactFormRequest;
+use App\Services\Frontend\HomeService;
 
 class HomeControllers extends Controller
 {
+    protected $homeService;
+
+    public function __construct(HomeService $homeService)
+    {
+        $this->homeService = $homeService;
+    }
+
     public function index()
     {
-        try{
+        try {
             return view('frontend.home');
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
 
     public function about()
     {
-        return view('frontend.about');
+        try {
+            return view('frontend.about');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function contact()
     {
-        return view('frontend.contact');
+        try {
+            return view('frontend.contact');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function solutions()
     {
-        return view('frontend.solutions');
+        try {
+            return view('frontend.solutions');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function caseStudies()
     {
-        return view('frontend.case-studies');
+        try {
+            return view('frontend.case-studies');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function insights()
     {
-        return view('frontend.insights');
+        try {
+            return view('frontend.insights');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    // Add more methods as needed for other pages
+    public function submitContactForm(ContactFormRequest $request)
+    {
+        try {
+
+            $validatedData = $request->validated();
+            return $this->homeService->storeContactFormData($validatedData);
+            
+        } catch (Exception $e) {
+            return response()->json(['status' => '0', 'message' => __('An error occurred while submitting the form.')]);
+        }
+    }
+
 }
