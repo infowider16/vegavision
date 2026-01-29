@@ -84,7 +84,11 @@
                 <div class="contact-form-style-one mt--30">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h3 class="title mb-0">Let’s Talk</h3>
-                        <a href="javascript:void(0)">+27 (0)10 313-0090</a>
+                        @if (!empty($site_settings['phone']))
+                        <a href="javascript:void(0)">
+                            {{ $site_settings['phone'] ?? '' }}
+                            </a>
+                        @endif
                     </div>
                     <form onsubmit="return handleSubmit();" id="contactForm" aria-label="Contact Form to discuss IT solutions">
                         @csrf
