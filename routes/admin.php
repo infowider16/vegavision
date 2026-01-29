@@ -24,6 +24,18 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
        
        Route::get('contact-management', 'UserController@contactManagement')->name('contact.management');
 
+       // category routes
+       Route::get('category-list', 'CategoryController@index')->name('category.list');
+       Route::post('add-category', 'CategoryController@store')->name('addcategory');
+       Route::post('update-category', 'CategoryController@update')->name('updatecategory');
+       Route::post('delete-category', 'CategoryController@destroy')->name('deletecategory');
         
+       // blog routes
+       Route::get('blog-list', 'BlogController@index')->name('blogs.list');
+       Route::get('add-blog', 'BlogController@create')->name('blogs.create');
+       Route::post('add-blog', 'BlogController@store')->name('blogs.store');
+       Route::get('edit-blog/{id}', 'BlogController@edit')->name('blogs.edit');
+       Route::put('update-blog/{id}', 'BlogController@update')->name('blogs.update');
+       Route::post('delete-blog', 'BlogController@destroy')->name('blogs.delete');
     });
 });

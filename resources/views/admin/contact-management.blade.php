@@ -24,7 +24,7 @@
                     <table id="contactTable" class="table table-bordered w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Sno.</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -106,12 +106,14 @@
             lengthMenu: [10, 25, 50, 100],
 
             order: [
-                [0, 'desc']
-            ], // latest first
+                [5, 'desc']
+            ],
 
             columns: [{
-                    data: 'id',
-                    name: 'id'
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'name',

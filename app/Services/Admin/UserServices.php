@@ -20,9 +20,11 @@ class UserServices
     {
         try {
             $query = $this->contactFormRepository->query()
-                ->select(['id', 'name', 'email', 'country_code', 'phone', 'organization', 'message', 'created_at']);
+                ->select(['name', 'email', 'country_code', 'phone', 'organization', 'message', 'created_at']);
 
             return DataTables::of($query)
+
+                ->addIndexColumn() 
 
                 ->addColumn('action', function ($row) {
                     $fullPhone = trim('+' . $row->country_code . ' ' . $row->phone);
