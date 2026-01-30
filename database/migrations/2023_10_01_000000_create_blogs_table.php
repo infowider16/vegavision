@@ -11,8 +11,8 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->string('title');
-            $table->string('subtitle')->nullable();
+            $table->text('title');
+            $table->text('subtitle')->nullable();
             $table->string('cover_image')->nullable();
             $table->text('content');
             $table->timestamps();
