@@ -35,6 +35,7 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
        Route::get('add-blog', 'BlogController@create')->name('blogs.create');
        Route::post('add-blog', 'BlogController@store')->name('blogs.store');
        Route::get('edit-blog/{id}', 'BlogController@edit')->name('blogs.edit');
+       Route::get('view-blog/{id}', 'BlogController@view')->name('blogs.view');
        Route::put('update-blog/{id}', 'BlogController@update')->name('blogs.update');
        Route::post('delete-blog', 'BlogController@destroy')->name('blogs.delete');
     });

@@ -16,7 +16,7 @@ class BlogRequest extends FormRequest
         return [
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:255',
-            'subtitle' => 'nullable|string',
+            'subtitle' => 'required|string',
             'cover_image' => 'nullable|image|max:2048',
             'content' => 'required|string',
         ];

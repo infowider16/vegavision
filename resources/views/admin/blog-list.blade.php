@@ -34,6 +34,7 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Actions</th>
@@ -44,13 +45,18 @@
                                 @foreach ($blogs as $blog)
                                     <tr id="blog-row-{{ $blog->id }}">
                                         <td>{{ $i++ }}</td>
+                                        <td>
+                                            <img src="{{ isset($blog) && $blog->cover_image ? asset('storage/'.$blog->cover_image) : '' }}" style="width: 100px; height: 100px; object-fit: cover;">
+                                        </td>
                                         <td>{{ $blog->title }}</td>
                                         <td>{{ $blog->category->name }}</td>
                                         <td>
+                                            <a href="{{ route('admin.blogs.view', $blog->id) }}" class="btn-one btn-sm btn-info">
+                                                <i class="fas fa-eye"></i> View
+                                            </a>
                                             <a href="{{ route('admin.blogs.edit', $blog->id) }}" class="btn-one btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-
                                             <button class="btn-one btn-sm btn-danger delete-blog"
                                                 data-id="{{ $blog->id }}">
                                                 <i class="fas fa-trash"></i> Delete
@@ -87,12 +93,12 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $.ajax({
-                            url: "{{ route('admin.blogs.delete', '') }}/" + id,
+                         $.ajax({
+                            url: "{{ route('admin.blogs.delete') }}",
                             method: 'POST',
                             data: {
                                 _token: '{{ csrf_token() }}',
-                                _method: 'DELETE'
+                                id: id
                             },
                             success: function(response) {
                                 if (response.status == 1) {

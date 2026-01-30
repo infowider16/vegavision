@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\Admin\CategoryService;
 use App\Http\Requests\Admin\CategoryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
@@ -28,6 +29,7 @@ class CategoryController extends Controller
             $categories = $this->categoryService->getAllCategories();
             return view('admin.category-list', compact('categories'));
         } catch (\Exception $e) {
+            Log::error('Error fetching categories: ' . $e->getMessage(), ['exception' => $e]);
             return error_response('Failed to fetch categories.', $e->getMessage());
         }
     }
@@ -41,6 +43,7 @@ class CategoryController extends Controller
             $this->categoryService->createCategory($request->validated());
             return success_response([], 'Category created successfully.');
         } catch (\Exception $e) {
+            Log::error('Error creating category: ' . $e->getMessage(), ['exception' => $e]);
             return error_response('Failed to create category.', $e->getMessage());
         }
     }
@@ -54,6 +57,7 @@ class CategoryController extends Controller
             $category = $this->categoryService->getCategoryById($id);
             return view('admin.category-edit', compact('category'));
         } catch (\Exception $e) {
+            Log::error('Error loading edit category form: ' . $e->getMessage(), ['exception' => $e]);
             return error_response('Failed to load edit category form.', $e->getMessage());
         }
     }
@@ -67,6 +71,7 @@ class CategoryController extends Controller
             $this->categoryService->updateCategory($request->validated());
             return success_response([], 'Category updated successfully.');
         } catch (\Exception $e) {
+            Log::error('Error updating category: ' . $e->getMessage(), ['exception' => $e]);
             return error_response('Failed to update category.', $e->getMessage());
         }
     }
@@ -80,6 +85,7 @@ class CategoryController extends Controller
             $this->categoryService->deleteCategory($request->category_id);
             return success_response([], 'Category deleted successfully.');
         } catch (\Exception $e) {
+            Log::error('Error deleting category: ' . $e->getMessage(), ['exception' => $e]);
             return error_response('Failed to delete category.', $e->getMessage());
         }
     }

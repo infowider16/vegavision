@@ -2,46 +2,61 @@
 
 namespace App\Traits;
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Spatie\Image\Image;
-use Spatie\Image\Enums\Unit; // ✅ needed for padding units
-use Spatie\Image\Enums\AlignPosition; // ✅ import AlignPosition enum
+use Illuminate\Support\Str;
 
 trait UploadImageTrait
 {
-    public function uploadImage($image, $path)
+    /**
+     * Upload a single image file.
+     * Returns stored relative path like: "products/abc123.jpg"
+     */
+    public function uploadImage(UploadedFile $image, string $folder): string
     {
-        // Generate unique filename
-        $name = time() . rand(99, 1000) . '.' . $image->getClientOriginalExtension();
-        $fullPath = storage_path('app/public/' . $path . '/' . $name);
+        $folder = trim($folder, '/');
 
-        // Ensure directory exists
-        $dir = dirname($fullPath);
-        if (!file_exists($dir)) {
-            mkdir($dir, 0777, true);
-        }
+        // Safer + unique name (keeps extension)
+        $filename = Str::uuid()->toString() . '.' . $image->getClientOriginalExtension();
 
-        // Temporary source path
-        $tmpPath = $image->getRealPath();
+        // Stores into storage/app/public/{folder}/{filename}
+        $path = $image->storeAs($folder, $filename, 'public');
 
-        // ✅ Path to your logo watermark
-        $logoPath = public_path('assets/img/watermark.png');
-
-        // ✅ Apply watermark (bottom-right, with padding & opacity)
-        Image::load($tmpPath)->
-            watermark($logoPath,
-	width:100,widthUnit:Unit::Percent,
-	height:100,heightUnit:Unit::Percent,
-    alpha:95,
-	)
-            ->save($fullPath);
-
-        // Return relative path for database use
-        return $path . '/' . $name;
+        return $path; // relative path for DB
     }
 
-    public function deleteImage($image)
+    /**
+     * Upload multiple images.
+     * Returns array of stored relative paths.
+     */
+    public function uploadImages(array $images, string $folder): array
     {
-        Storage::disk('public')->delete($image);
+        $paths = [];
+
+        foreach ($images as $image) {
+            if ($image instanceof UploadedFile) {
+                $paths[] = $this->uploadImage($image, $folder);
+            }
+        }
+
+        return $paths;
+    }
+
+    /**
+     * Delete a single stored image path (relative path on public disk).
+    */
+    public function deleteImage(?string $path): void
+    {
+        if ($path) {
+            Storage::disk('public')->delete($path);
+        }
+    }
+
+    /**
+     * Delete multiple stored images.
+     */
+    public function deleteImages(array $paths): void
+    {
+        Storage::disk('public')->delete(array_filter($paths));
     }
 }

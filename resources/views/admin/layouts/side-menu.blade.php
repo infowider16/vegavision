@@ -91,10 +91,26 @@
                             <div class="has-child-main">
                                 <div class="has-child-main-inner">
                                     <div class="has-child-icon">
-                                        <i class="fa-solid fa-headset"></i>
+                                       <i class="fa-solid fa-list"></i>
                                     </div>
                                     <div class="has-child-text">
                                         <span>Category Management</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </li>
+                    <li class="menu-main support-menu-item">
+                        <a href="{{ route('admin.blogs.list') }}"
+                            class="{{ request()->routeIs('admin.blogs.list') ? 'active' : '' }}">
+                            <div class="has-child-main">
+                                <div class="has-child-main-inner">
+                                    <div class="has-child-icon">
+                                     <i class="fa-solid fa-list"></i>
+                                    </div>
+                                    <div class="has-child-text">
+                                        <span>Blog Management</span>
                                     </div>
                                 </div>
                             </div>
