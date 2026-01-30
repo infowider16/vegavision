@@ -42,14 +42,14 @@
                         <article class="swiper-slide">
                             <div class="single-case-style-one">
 
-                                <a href="Municipal-ITSM.php" class="thumbnail-case"
+                                <a href="{{ route('case-studies.municipal') }}" class="thumbnail-case"
                                     aria-label="Municipal IT Service Management case study">
                                     <img src="{{ asset('assets/images/case/01.webp') }}"
                                         alt="Municipal IT service desk transformation using VegaVision ITSM platform"
                                         loading="lazy" />
                                 </a>
 
-                                <a href="Municipal-ITSM.php" class="inner-content">
+                                <a href="{{ route('case-studies.municipal') }}" class="inner-content">
                                     <span>Municipal ITSM</span>
                                     <h3 class="title">
                                         City Service Desk Transformation
@@ -63,14 +63,14 @@
                         <article class="swiper-slide">
                             <div class="single-case-style-one">
 
-                                <a href="isp-billing.php" class="thumbnail-case"
+                                <a href="{{ route('case-studies.usage-based-billing') }}" class="thumbnail-case"
                                     aria-label="ISP billing and revenue management case study">
                                     <img src="{{ asset('assets/images/case/02.webp') }}"
                                         alt="ISP usage-based billing modernisation with VegaVision revenue management platform"
                                         loading="lazy" />
                                 </a>
 
-                                <a href="isp-billing.php" class="inner-content">
+                                <a href="{{ route('case-studies.usage-based-billing') }}" class="inner-content">
                                     <span>ISP Billing</span>
                                     <h3 class="title">
                                         Usage-Based Billing Modernisation
@@ -84,14 +84,14 @@
                         <article class="swiper-slide">
                             <div class="single-case-style-one">
 
-                                <a href="network-monitoring-study.php" class="thumbnail-case"
+                                <a href="{{ route('case-studies.network-monitoring') }}" class="thumbnail-case"
                                     aria-label="Network monitoring and observability case study">
                                     <img src="{{ asset('assets/images/case/03.webp') }}"
                                         alt="Proactive network monitoring and observability powered by VegaVision"
                                         loading="lazy" />
                                 </a>
 
-                                <a href="network-monitoring-study.php" class="inner-content">
+                                <a href="{{ route('case-studies.network-monitoring') }}" class="inner-content">
                                     <span>Network Monitoring</span>
                                     <h3 class="title">
                                         Proactive Network Observability
@@ -105,14 +105,14 @@
                         <article class="swiper-slide">
                             <div class="single-case-style-one">
 
-                                <a href="omnichannel-CX.php" class="thumbnail-case"
+                                <a href="{{ route('case-studies.contactCentre') }}" class="thumbnail-case"
                                     aria-label="Omnichannel contact centre transformation case study">
                                     <img src="{{ asset('assets/images/case/04.webp') }}"
                                         alt="Unified omnichannel contact centre experience using VegaVision platforms"
                                         loading="lazy" />
                                 </a>
 
-                                <a href="omnichannel-CX.php" class="inner-content">
+                                <a href="{{ route('case-studies.contactCentre') }}" class="inner-content">
                                     <span>Omnichannel CX</span>
                                     <h3 class="title">
                                         Unified Contact Centre Experience

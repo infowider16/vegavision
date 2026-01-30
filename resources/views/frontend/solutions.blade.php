@@ -237,7 +237,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-headset"></i>
                                 </div>
-                                <a href="contact-centre-omnichannel.php">
+                                <a href="{{ route('solutions.contact-centre-omnichannel') }}">
                                     <h3 class="title">Contact Center</h3>
                                 </a>
                                 <p class="disc">
@@ -252,7 +252,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-gears"></i>
                                 </div>
-                                <a href="itsm.php">
+                                <a href="{{ route('solutions.it-service-management') }}">
                                     <h3 class="title">IT Service Management</h3>
                                 </a>
                                 <p class="disc">
@@ -267,7 +267,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-code"></i>
                                 </div>
-                                <a href="custom-software.php">
+                                <a href="{{ route('solutions.custom-software') }}">
                                     <h3 class="title">Custom Software</h3>
                                 </a>
                                 <p class="disc">
@@ -290,7 +290,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-file-invoice-dollar"></i>
                                 </div>
-                                <a href="billing-revenue-management.php">
+                                <a href="{{ route('solutions.billing-revenue-management') }}">
                                     <h3 class="title">Billing & Revenue</h3>
                                 </a>
                                 <p class="disc">
@@ -305,7 +305,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-users-gear"></i>
                                 </div>
-                                <a href="crm-platforms.php">
+                                <a href="{{ route('solutions.crm-platforms') }}">
                                     <h3 class="title">CRM </h3>
                                 </a>
                                 <p class="disc">
@@ -329,7 +329,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-wifi"></i>
                                 </div>
-                                <a href="isp-wifi-platforms.php">
+                                <a href="{{ route('solutions.isp-wifi-platforms') }}">
                                     <h3 class="title">ISP & Wi-Fi Management</h3>
                                 </a>
                                 <p class="disc">
@@ -338,14 +338,13 @@
                                 </p>
                             </div>
                         </article>
-
                         <!-- Monitoring & Observability -->
                         <article class="col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                             <div class="single-service-style-one">
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-network-wired"></i>
                                 </div>
-                                <a href="network-monitoring.php">
+                                <a href="{{ route('solutions.network-monitoring') }}">
                                     <h3 class="title">Monitoring & Observability</h3>
                                 </a>
                                 <p class="disc">
@@ -368,7 +367,7 @@
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-chart-line"></i>
                                 </div>
-                                <a href="data-bi.php">
+                                <a href="{{ route('solutions.data-bi') }}">
                                     <h3 class="title">Data, Reporting & BI</h3>
                                 </a>
                                 <p class="disc">
@@ -377,14 +376,13 @@
                                 </p>
                             </div>
                         </article>
-
                         <!-- Integration & Automation -->
                         <article class="col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                             <div class="single-service-style-one">
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-diagram-project"></i>
                                 </div>
-                                <a href="systems-integration-automation.php">
+                                <a href="{{ route('solutions.systems-integration-automation') }}">
                                     <h3 class="title">Integration & Automation</h3>
                                 </a>
                                 <p class="disc">
@@ -393,14 +391,13 @@
                                 </p>
                             </div>
                         </article>
-
                         <!-- Managed Platforms & SaaS -->
                         <article class="col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                             <div class="single-service-style-one">
                                 <div class="icon" aria-hidden="true">
                                     <i class="fa-sharp fa-solid fa-cloud"></i>
                                 </div>
-                                <a href="managed-saas.php">
+                                <a href="{{ route('solutions.managed-saas') }}">
                                     <h3 class="title">Managed Platforms & SaaS</h3>
                                 </a>
                                 <p class="disc">
@@ -408,7 +405,6 @@
                                 </p>
                             </div>
                         </article>
-
                     </div>
                 </div>
             </div>
@@ -419,7 +415,7 @@
 
     <!-- Decorative Shape -->
     <div class="shape-img" aria-hidden="true">
-        <img src="assets/images/service/13.svg" alt="">
+        <img src="{{ asset('assets/images/service/13.svg') }}" alt="">
     </div>
 </section>
 
@@ -508,7 +504,7 @@
 
                                 <a href="Municipal-ITSM.php" class="thumbnail-case"
                                     aria-label="Municipal IT Service Management case study">
-                                    <img src="assets/images/case/01.webp"
+                                    <img src="{{ asset('assets/images/case/01.webp') }}"
                                         alt="Municipal IT service desk transformation using VegaVision ITSM platform"
                                         loading="lazy" />
                                 </a>
@@ -529,7 +525,7 @@
 
                                 <a href="isp-billing.php" class="thumbnail-case"
                                     aria-label="ISP billing and revenue management case study">
-                                    <img src="assets/images/case/02.webp"
+                                    <img src="{{ asset('assets/images/case/02.webp') }}"
                                         alt="ISP usage-based billing modernisation with VegaVision revenue management platform"
                                         loading="lazy" />
                                 </a>
@@ -550,7 +546,7 @@
 
                                 <a href="network-monitoring-study.php" class="thumbnail-case"
                                     aria-label="Network monitoring and observability case study">
-                                    <img src="assets/images/case/03.webp"
+                                    <img src="{{ asset('assets/images/case/03.webp') }}"
                                         alt="Proactive network monitoring and observability powered by VegaVision"
                                         loading="lazy" />
                                 </a>
@@ -571,7 +567,7 @@
 
                                 <a href="omnichannel-CX.php" class="thumbnail-case"
                                     aria-label="Omnichannel contact centre transformation case study">
-                                    <img src="assets/images/case/04.webp"
+                                    <img src="{{ asset('assets/images/case/04.webp') }}"
                                         alt="Unified omnichannel contact centre experience using VegaVision platforms"
                                         loading="lazy" />
                                 </a>
@@ -617,7 +613,7 @@
                             loading="lazy" />
                     </figure>
 
-                    <img class="board" src="assets/images/it-services.jpg" alt="" aria-hidden="true" loading="lazy" />
+                    <img class="board" src="{{ asset('assets/images/it-services.jpg') }}" alt="" aria-hidden="true" loading="lazy" />
                 </div>
             </div>
 
@@ -702,7 +698,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
                     <a href="service-management.php" class="thumbnail-blog">
-                        <img src="assets/images/blog/1.webp" alt="Enterprise IT Service Management" />
+                        <img src="{{ asset('assets/images/blog/1.webp') }}" alt="Enterprise IT Service Management" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">IT Service Management</span>
@@ -723,7 +719,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
                     <a href="isp-billing-blog.php" class="thumbnail-blog">
-                        <img src="assets/images/blog/02.webp" alt="ISP Billing and Revenue Management" />
+                        <img src="{{ asset('assets/images/blog/02.webp') }}" alt="ISP Billing and Revenue Management" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">ISP & Billing</span>
@@ -744,7 +740,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
                     <a href="omni-channel-blog.php" class="thumbnail-blog">
-                        <img src="assets/images/blog/03.webp" alt="Omnichannel Contact Centre" />
+                        <img src="{{ asset('assets/images/blog/03.webp') }}" alt="Omnichannel Contact Centre" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">Customer Experience</span>

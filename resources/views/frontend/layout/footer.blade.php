@@ -7,6 +7,17 @@
                     <a href="{{ route('home') }}" class="logo">
                         <img src="{{ asset('assets/images/vega-logo-white.png') }}" alt="VegaVision Logo" />
                     </a>
+                    <div class="footer-contact mt-4">
+                        @if(!empty($site_settings['address']))
+                            <div><i class="fas fa-map-marker-alt"></i> {{ $site_settings['address'] }}</div>
+                        @endif
+                        @if(!empty($site_settings['phone']))
+                            <div><i class="fas fa-phone"></i> {{ $site_settings['phone'] }}</div>
+                        @endif
+                        @if(!empty($site_settings['email']))
+                            <div><i class="fas fa-envelope"></i> {{ $site_settings['email'] }}</div>
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="ms-auto col-lg-8 mt_md--50 mt_sm--50">
@@ -37,7 +48,7 @@
                         <h6 class="title">Resources</h6>
                         <ul>
                             <li><a href="{{ route('case-studies') }}">Case Studies</a></li>  
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="{{ route('faqs') }}">FAQ</a></li>
                             <li><a href="{{ route('contact') }}">Help Center</a></li>
                         </ul>
                     </div>
@@ -46,9 +57,24 @@
                     <div class="single">
                         <h6 class="title">Social Media</h6>
                         <ul>
-                            <li><a href="#" target="_blank" aria-label="Facebook">Facebook</a></li>
-                            <li><a href="#" target="_blank" aria-label="Twitter">Twitter</a></li>
-                            <li><a href="#" target="_blank" aria-label="LinkedIn">LinkedIn</a></li> 
+                            @if(!empty($site_settings['facebook']))
+                                <li><a href="{{ $site_settings['facebook'] }}" target="_blank" aria-label="Facebook">Facebook</a></li>
+                            @endif
+                            @if(!empty($site_settings['twitter']))
+                                <li><a href="{{ $site_settings['twitter'] }}" target="_blank" aria-label="Twitter">Twitter</a></li>
+                            @endif
+                            @if(!empty($site_settings['linkedin']))
+                                <li><a href="{{ $site_settings['linkedin'] }}" target="_blank" aria-label="LinkedIn">LinkedIn</a></li>
+                            @endif
+                            @if(!empty($site_settings['instagram']))
+                                <li><a href="{{ $site_settings['instagram'] }}" target="_blank" aria-label="Instagram">Instagram</a></li>
+                            @endif
+                            @if(!empty($site_settings['pinterest']))
+                                <li><a href="{{ $site_settings['pinterest'] }}" target="_blank" aria-label="Pinterest">Pinterest</a></li>
+                            @endif
+                            @if(!empty($site_settings['google']))
+                                <li><a href="{{ $site_settings['google'] }}" target="_blank" aria-label="Google">Google</a></li>
+                            @endif
                         </ul>
                     </div>
 

@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function index()
     {
         try {
-            if (Auth::check() && Auth::user()->type === 'admin') {
+            if (Auth::check() && Auth::user()->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             }
             return view('admin.login');

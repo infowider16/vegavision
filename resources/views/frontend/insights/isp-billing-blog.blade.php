@@ -1,4 +1,6 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
+
+@section('content')
 
 <!-- rts service-details-breadcrumb-area-start -->
 <div class="rts-service-details-breadcrumb-area">
@@ -28,7 +30,7 @@
                 <!-- rts blog details wrapper area start -->
                 <div class="rts-blog-detials-area-start">
                     <div class="thumbnail-top">
-                        <img src="assets/images/blog/03.webp" class="w-100" alt="ISP Billing and Revenue Management">
+                        <img src="{{ asset('assets/images/blog/03.webp') }}" class="w-100" alt="ISP Billing and Revenue Management">
                     </div>
                     <div class="inner-content-blog-details">
                         <div class="top-area">
@@ -161,7 +163,7 @@
                             </div>
                         </div>
 
-                        <img src="assets/images/blog/01.webp" alt="ISP Billing Platform" class="bottom-image">
+                        <img src="{{ asset('assets/images/blog/01.webp') }}" alt="ISP Billing Platform" class="bottom-image">
 
                         <h3 class="title">Examples in Practice</h3>
 
@@ -241,4 +243,4 @@
 </div>
 <!-- rts blog list area end -->
 
-<?php include 'includes/footer.php'; ?>
+@endsection

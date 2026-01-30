@@ -24,17 +24,17 @@
             <!-- Blog 1 -->
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
-                    <a href="service-management.php" class="thumbnail-blog">
+                    <a href="{{ route('insights.enterprise-it-service-management') }}" class="thumbnail-blog">
                         <img src="{{ asset('assets/images/blog/1.webp') }}" alt="Enterprise IT Service Management" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">IT Service Management</span>
-                        <a href="service-management.php">
+                        <a href="{{ route('insights.enterprise-it-service-management') }}">
                             <h5 class="title">
                                 Why Enterprise IT Service Management Is No Longer Optional
                             </h5>
                         </a>
-                        <a href="service-management.php" class="btn-line">
+                        <a href="{{ route('insights.enterprise-it-service-management') }}" class="btn-line">
                             <span>Read Article</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
@@ -45,17 +45,17 @@
             <!-- Blog 2 -->
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
-                    <a href="isp-billing-blog.php" class="thumbnail-blog">
+                    <a href="{{ route('insights.isp-billing-revenue-management') }}" class="thumbnail-blog">
                         <img src="{{ asset('assets/images/blog/02.webp') }}" alt="ISP Billing and Revenue Management" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">ISP & Billing</span>
-                        <a href="isp-billing-blog.php">
+                        <a href="{{ route('insights.isp-billing-revenue-management') }}">
                             <h5 class="title">
                                 Simplifying ISP Billing and Revenue Management with Purpose-Built Platforms
                             </h5>
                         </a>
-                        <a href="isp-billing-blog.php" class="btn-line">
+                        <a href="{{ route('insights.isp-billing-revenue-management') }}" class="btn-line">
                             <span>Read Article</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
@@ -66,17 +66,17 @@
             <!-- Blog 3 -->
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <article class="single-blog-style-one">
-                    <a href="omni-channel-blog.php" class="thumbnail-blog">
+                    <a href="{{ route('insights.omnichannel-contact-centre') }}" class="thumbnail-blog">
                         <img src="{{ asset('assets/images/blog/03.webp') }}" alt="Omnichannel Contact Centre" />
                     </a>
                     <div class="inner-content-blog">
                         <span class="category">Customer Experience</span>
-                        <a href="omni-channel-blog.php">
+                        <a href="{{ route('insights.omnichannel-contact-centre') }}">
                             <h5 class="title">
                                 Building Scalable Omnichannel Contact Centre Experiences
                             </h5>
                         </a>
-                        <a href="omni-channel-blog.php" class="btn-line">
+                        <a href="{{ route('insights.omnichannel-contact-centre') }}" class="btn-line">
                             <span>Read Article</span>
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>

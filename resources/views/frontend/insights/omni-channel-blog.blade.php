@@ -1,4 +1,5 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
+@section('content')
 
 <!-- rts service-details-breadcrumb-area-start -->
 <div class="rts-service-details-breadcrumb-area">
@@ -27,7 +28,7 @@
                 <!-- rts blog details wrapper area start -->
                 <div class="rts-blog-detials-area-start">
                     <div class="thumbnail-top">
-                        <img src="assets/images/blog/02.webp" class="w-100" alt="Omnichannel Contact Centre">
+                        <img src="{{ asset('assets/images/blog/02.webp') }}" class="w-100" alt="Omnichannel Contact Centre">
                     </div>
                     <div class="inner-content-blog-details">
                         <div class="top-area">
@@ -165,7 +166,7 @@
                             and improving resolution times.
                         </p>
 
-                        <img src="assets/images/blog/01.webp" alt="Omnichannel Platform Dashboard" class="bottom-image">
+                        <img src="{{ asset('assets/images/blog/01.webp') }}" alt="Omnichannel Platform Dashboard" class="bottom-image">
 
                         <h3 class="title">How to Build a Scalable Omnichannel Contact Centre</h3>
 
@@ -248,6 +249,4 @@
     </div>
 </div>
 <!-- rts blog list area end -->
-
-<?php include 'includes/footer.php'; ?>
-
+@endsection

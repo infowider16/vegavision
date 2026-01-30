@@ -1,5 +1,6 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
 
+@section('content')
 <div class="service-inner container">
     <!-- Hero Section -->
     <section class="hero-section">
@@ -103,5 +104,4 @@
         </div>
     </section>
 </div>
-
-<?php include 'includes/footer.php'; ?>
+@endsection

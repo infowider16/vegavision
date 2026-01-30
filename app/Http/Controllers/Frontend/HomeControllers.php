@@ -83,4 +83,13 @@ class HomeControllers extends Controller
         }
     }
 
+    public function faqs()
+    {
+        try {
+            return view('frontend.faqs');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
 }
