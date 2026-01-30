@@ -48,7 +48,7 @@
                         <h6 class="title">Resources</h6>
                         <ul>
                             <li><a href="{{ route('case-studies') }}">Case Studies</a></li>  
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="{{ route('faqs') }}">FAQ</a></li>
                             <li><a href="{{ route('contact') }}">Help Center</a></li>
                         </ul>
                     </div>

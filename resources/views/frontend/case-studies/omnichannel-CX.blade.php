@@ -1,5 +1,6 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
 
+@section('content')
 
 <article class="case-study-container">
     <header class="case-study-header">
@@ -142,4 +143,5 @@
     </section>
 </article>
 
-<?php include 'includes/footer.php'; ?>
+
+@endsection

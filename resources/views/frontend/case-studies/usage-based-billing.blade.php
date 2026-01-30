@@ -1,6 +1,7 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
 
-<article class="case-study-container">
+@section('content')
+    <article class="case-study-container">
     <header class="case-study-header">
         <div class="case-category">ISP Billing</div>
         <h1>Usage-Based Billing Modernisation</h1>
@@ -184,6 +185,4 @@
         </p>
     </section>
 </article>
-
-
-<?php include 'includes/footer.php'; ?>
+@endsection

@@ -1,5 +1,6 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
 
+@section('content')
 <!-- rts service-details-breadcrumb-area-start -->
 <div class="rts-service-details-breadcrumb-area">
     <div class="container">
@@ -27,7 +28,7 @@
                 <!-- rts blog details wrapper area start -->
                 <div class="rts-blog-detials-area-start">
                     <div class="thumbnail-top">
-                        <img src="assets/images/blog/02.webp" class="w-100" alt="Enterprise IT Service Management">
+                        <img src="{{ asset('assets/images/blog/02.webp') }}" class="w-100" alt="Enterprise IT Service Management">
                     </div>
                     <div class="inner-content-blog-details">
                         <div class="top-area">
@@ -144,7 +145,7 @@
                             These capabilities change how IT work happens. They introduce predictability.
                         </p>
 
-                        <img src="assets/images/blog/01.webp" alt="Enterprise ITSM Platform" class="bottom-image">
+                        <img src="{{ asset('assets/images/blog/01.webp') }}" alt="Enterprise ITSM Platform" class="bottom-image">
 
                         <h3 class="title">How ITSM Changes Outcomes</h3>
 
@@ -218,4 +219,4 @@
 </div>
 <!-- rts blog list area end -->
 
-<?php include 'includes/footer.php'; ?>
+@endsection

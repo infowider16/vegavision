@@ -1,7 +1,7 @@
-<?php include 'includes/header.php'; ?>
+@extends('frontend.layout.layout')
 
+@section('content')
 
-<!-- rts about-breadcrumb-area-start -->
 <div class="rts-about-breadcrumb-area">
     <div class="container">
         <div class="row align-items-center">
@@ -10,14 +10,13 @@
                     <ul class="justify-content-center">
                         <li><a href="index.php">Home</a></li>
                         <li><i class="fa fa-chevron-right"></i></li>
-                        <li class="active"><a href="contact.php">Contact</a></li>
+                        <li class="active"><a href="">FAQ</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- rts about-breadcrumb-area-end -->
 
 <!-- rts faq area start -->
 <section class="rts-faq-area-start rts-section-gap" aria-label="Frequently Asked Questions and Contact VegaVision">
@@ -25,7 +24,7 @@
         <div class="row align-items-center">
 
             <!-- FAQ Left Column -->
-            <div class="col-lg-5 pr--50 pr_lg--20 pr_md--10 pr_sm--10">
+            <div class="col-lg-12 pr--50 pr_lg--20 pr_md--10 pr_sm--10">
                 <div class="faq-left-area-main">
                     <header class="title-left-wrapper">
                         <span class="pre">FAQ</span>
@@ -98,53 +97,11 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Contact Form Right Column -->
-            <div class="offset-lg-1 col-lg-6">
-                <div class="contact-form-style-one mt--30">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h3 class="title mb-0">Let’s Talk</h3>
-                        <a href="#">+27 (0)10 313-0090</a>
-                    </div>
-                    <form action="#" method="post" aria-label="Contact Form to discuss IT solutions">
-                        <div class="single-input-wrapper justify-content-between">
-                            <div class="single-input">
-                                <label for="name" class="visually-hidden">Full Name</label>
-                                <input type="text" id="name" name="name" placeholder="Full Name" required />
-                            </div>
-                            <div class="single-input">
-                                <label for="organization" class="visually-hidden">Organisation</label>
-                                <input type="text" id="organization" name="organization" placeholder="Organisation" />
-                            </div>
-                        </div>
-
-                        <div class="single-input-wrapper justify-content-between">
-                            <div class="single-input">
-                                <label for="email" class="visually-hidden">Work Email</label>
-                                <input type="email" id="email" name="email" placeholder="Work Email" required />
-                            </div>
-                            <div class="single-input">
-                                <label for="phone" class="visually-hidden">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
-                            </div>
-                        </div>
-
-                        <div class="single-input">
-                            <label for="message" class="visually-hidden">Message</label>
-                            <textarea id="message" name="message"
-                                placeholder="Tell us about your business requirements" required></textarea>
-                        </div>
-
-                        <button class="rts-btn btn-primary" type="submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
+ 
 
         </div>
     </div>
 </section>
 <!-- rts faq area end -->
 
-
-
-<?php include 'includes/footer.php'; ?>
+@endsection

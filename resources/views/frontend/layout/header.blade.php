@@ -38,50 +38,29 @@
                                             <div class="container">
                                                 <div class="row g-0">
 
-                                                    <!-- Column 1 -->
-                                                    <!-- <div class="col-lg-3">
-                                                        <ul class="mega-menu-item with-list parent-nav" role="none">
-                                                            <li>
-                                                                <a href="about.php">About VegaVision</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="solutions.php">Enterprise Software Solutions</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="solutions.php">Industries We Serve</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="solutions.php">Technology Partners</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="solutions.php">Case Studies & Use Cases</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div> -->
-
                                                     <!-- Column 2 -->
                                                     <div class="col-lg-6">
                                                         <ul class="mega-menu-item with-list parent-nav" role="none">
                                                               <li>
-                                                                <a href="billing-revenue-management.php">
+                                                                <a href="{{ route('solutions.billing-revenue-management') }}">
                                                                     Billing & Revenue Management
                                                                 </a>
                                                             </li>
                                                               <li>
-                                                                <a href="contact-centre-omnichannel.php">
+                                                                <a href="{{ route('solutions.contact-centre-omnichannel') }}">
                                                                 Contact Centre
                                                                 </a>
                                                             </li>
                                                              <li>
-                                                                <a href="crm-platforms.php">CRM </a>
+                                                                <a href="{{ route('solutions.crm-platforms') }}">CRM </a>
                                                             </li>
                                                               <li>
-                                                                <a href="isp-wifi-platforms.php">
+                                                                <a href="{{ route('solutions.isp-wifi-platforms') }}">
                                                                     ISP & Wi-Fi Management Platforms
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="itsm.php">IT Service Management (ITSM)</a>
+                                                                <a href="{{ route('solutions.it-service-management') }}">IT Service Management (ITSM)</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -90,27 +69,27 @@
                                                     <div class="col-lg-6">
                                                         <ul class="mega-menu-item with-list parent-nav" role="none">
                                                             <li>
-                                                                <a href="network-monitoring.php">
+                                                                <a href="{{ route('solutions.network-monitoring') }}">
                                                                     Network Monitoring & Observability
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="custom-software.php">
+                                                                <a href="{{ route('solutions.custom-software') }}">
                                                                     Custom Software Development
                                                                 </a>
                                                             </li>
                                                               <li>
-                                                                <a href="data-bi.php">
+                                                                <a href="{{ route('solutions.data-bi') }}">
                                                                     Data, Reporting & Business Intelligence
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="systems-integration-automation.php">
+                                                                <a href="{{ route('solutions.systems-integration-automation') }}">
                                                                     Systems Integration & Automation
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="managed-saas.php">
+                                                                <a href="{{ route('solutions.managed-saas') }}">
                                                                     Managed Platforms & SaaS Solutions
                                                                 </a>
                                                             </li>
